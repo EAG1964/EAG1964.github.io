@@ -8,7 +8,6 @@
     :root { 
       --primary: #2c3e50; 
       --secondary: #3498db; 
-      --accent: #e67e22; 
       --bg: #f8f9fa; 
       --physics: #2980b9; 
       --chemistry: #8e44ad; 
@@ -22,12 +21,16 @@
     table { width: 100%; border-collapse: collapse; }
     th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid #eee; vertical-align: middle; }
     th { background: #f1f2f6; font-size: 0.75rem; color: #7f8c8d; text-transform: uppercase; }
+    
     .preview-container { position: relative; display: inline-block; margin-top: 10px; }
     .preview-img { width: 140px; height: auto; border-radius: 6px; border: 1px solid #ddd; transition: all 0.3s ease-in-out; cursor: zoom-in; display: block; }
     .preview-img:hover { transform: scale(2.5); box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 999; position: relative; }
-    .btn { text-decoration: none; padding: 8px 16px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; transition: 0.2s; display: inline-block; border: 1.5px solid; }
+    
+    .btn { text-decoration: none; padding: 8px 16px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; transition: 0.2s; display: inline-block; border: 1.5px solid; margin-right: 5px; }
     .btn-es { color: #e74c3c; border-color: #e74c3c; }
     .btn-es:hover { background: #e74c3c; color: white; transform: translateY(-2px); }
+    .btn-soon { color: #95a5a6; border-color: #bdc3c7; opacity: 0.6; cursor: not-allowed; font-style: italic; }
+    
     .visit-counter { text-align: center; margin: 50px 0 20px 0; padding: 20px; border-top: 1px solid #eee; }
     footer { text-align: center; color: #95a5a6; font-size: 0.85rem; padding-bottom: 40px; }
   </style>
@@ -41,18 +44,24 @@
   <section class="course-section">
     <div class="course-header">2º ESO <span class="tag">Secundaria / Secondary</span></div>
     <table>
-      <thead><tr><th width="65%">Simulación / Simulation</th><th>Acceso / Access</th></tr></thead>
+      <thead><tr><th width="60%">Simulación / Simulation</th><th>Acceso / Access</th></tr></thead>
       <tbody>
         <tr>
           <td><strong>Factores de Conversión y Unidades</strong></td>
-          <td><a href="https://EAG1964.github.io/Simulador_Cambio_Unidades_1/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a></td>
+          <td>
+            <a href="https://EAG1964.github.io/Simulador_Cambio_Unidades_1/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a>
+            <span class="btn btn-soon">🇬🇧 Soon</span>
+          </td>
         </tr>
         <tr>
           <td>
             <strong>Iniciación al Átomo (Modelo de Bohr)</strong><br>
             <div class="preview-container"><img src="preview-bohr.jpg" class="preview-img" alt="Vista previa Bohr"></div>
           </td>
-          <td><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a></td>
+          <td>
+            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a>
+            <span class="btn btn-soon">🇬🇧 Soon</span>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -63,8 +72,11 @@
     <table>
       <tbody>
         <tr>
-          <td width="65%"><strong>Estructura Atómica y Corteza</strong><br><div class="preview-container"><img src="preview-bohr.jpg" class="preview-img" alt="Vista previa Bohr"></div></td>
-          <td><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a></td>
+          <td width="60%"><strong>Estructura Atómica y Corteza</strong><br><div class="preview-container"><img src="preview-bohr.jpg" class="preview-img" alt="Vista previa Bohr"></div></td>
+          <td>
+            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a>
+            <span class="btn btn-soon">🇬🇧 Soon</span>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -75,8 +87,11 @@
     <table>
       <tbody>
         <tr>
-          <td width="65%"><strong>Modelos Atómicos: El Salto Cuántico</strong><br><div class="preview-container"><img src="preview-bohr.jpg" class="preview-img" alt="Vista previa Bohr"></div></td>
-          <td><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a></td>
+          <td width="60%"><strong>Modelos Atómicos: El Salto Cuántico</strong><br><div class="preview-container"><img src="preview-bohr.jpg" class="preview-img" alt="Vista previa Bohr"></div></td>
+          <td>
+            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a>
+            <span class="btn btn-soon">🇬🇧 Soon</span>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -87,8 +102,11 @@
     <table>
       <tbody>
         <tr>
-          <td width="65%"><strong>Espectroscopía Atómica de Emisión</strong><br><div class="preview-container"><img src="preview-bohr.jpg" class="preview-img" alt="Vista previa Bohr"></div></td>
-          <td><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a></td>
+          <td width="60%"><strong>Espectroscopía Atómica de Emisión</strong><br><div class="preview-container"><img src="preview-bohr.jpg" class="preview-img" alt="Vista previa Bohr"></div></td>
+          <td>
+            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a>
+            <span class="btn btn-soon">🇬🇧 Soon</span>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -99,8 +117,11 @@
     <table>
       <tbody>
         <tr>
-          <td width="65%"><strong>Física Cuántica: Series del Hidrógeno</strong><br><div class="preview-container"><img src="preview-bohr.jpg" class="preview-img" alt="Vista previa Bohr"></div></td>
-          <td><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a></td>
+          <td width="60%"><strong>Física Cuántica: Series del Hidrógeno</strong><br><div class="preview-container"><img src="preview-bohr.jpg" class="preview-img" alt="Vista previa Bohr"></div></td>
+          <td>
+            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a>
+            <span class="btn btn-soon">🇬🇧 Soon</span>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -111,8 +132,11 @@
     <table>
       <tbody>
         <tr>
-          <td width="65%"><strong>Estructura de la Materia: El Modelo de Bohr</strong><br><div class="preview-container"><img src="preview-bohr.jpg" class="preview-img" alt="Vista previa Bohr"></div></td>
-          <td><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a></td>
+          <td width="60%"><strong>Estructura de la Materia: El Modelo de Bohr</strong><br><div class="preview-container"><img src="preview-bohr.jpg" class="preview-img" alt="Vista previa Bohr"></div></td>
+          <td>
+            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a>
+            <span class="btn btn-soon">🇬🇧 Soon</span>
+          </td>
         </tr>
       </tbody>
     </table>
