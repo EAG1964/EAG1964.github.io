@@ -9,25 +9,40 @@
     body { font-family: 'Segoe UI', system-ui, sans-serif; max-width: 1000px; margin: 40px auto; padding: 20px; background-color: var(--bg); color: #333; }
     
     header { text-align: center; margin-bottom: 40px; border-bottom: 4px solid var(--secondary); padding-bottom: 20px; }
+    h1 { color: var(--primary); margin: 0; font-size: 2.8rem; transition: 0.4s; }
     
-    h1 { color: var(--primary); margin: 0; font-size: 2.8rem; transition: all 0.4s ease; cursor: default; }
-    h1:hover { color: var(--secondary); text-shadow: 2px 2px 10px rgba(52, 152, 219, 0.3); transform: scale(1.02); }
-    
-    .course-section { margin-top: 30px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; }
-    .course-header { background: var(--primary); color: white; padding: 10px 20px; font-weight: bold; font-size: 1.1rem; display: flex; justify-content: space-between; align-items: center; }
-    .tag { font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    .course-section { margin-top: 30px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: visible; }
+    .course-header { background: var(--primary); color: white; padding: 10px 20px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+    .tag { font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; text-transform: uppercase; }
     
     table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid #eee; }
+    th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid #eee; vertical-align: middle; }
     th { background: #f1f2f6; font-size: 0.75rem; color: #7f8c8d; text-transform: uppercase; }
-    tr:hover { background-color: #fcfcfc; }
+
+    /* ESTILO DE LAS PREVISUALIZACIONES CON ZOOM */
+    .preview-container { position: relative; display: inline-block; margin-top: 10px; }
+    .preview-img { 
+      width: 150px; 
+      height: auto; 
+      border-radius: 6px; 
+      border: 1px solid #ccc; 
+      transition: all 0.3s ease-in-out;
+      cursor: zoom-in;
+      display: block;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    /* Efecto Zoom: se agranda al pasar el ratón */
+    .preview-img:hover { 
+      transform: scale(2.2); 
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+      border-color: var(--secondary);
+      z-index: 999;
+      position: relative;
+    }
     
-    .btn { text-decoration: none; padding: 6px 12px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; transition: 0.2s; display: inline-block; border: 1.5px solid; }
-    
-    .btn-es { color: #e74c3c; border-color: #e74c3c; margin-right: 5px; }
-    .btn-es:hover { background: #e74c3c; color: white; }
-    
-    .btn-en { color: #2980b9; border-color: #2980b9; opacity: 0.4; cursor: not-allowed; } 
+    .btn { text-decoration: none; padding: 8px 16px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; transition: 0.2s; display: inline-block; border: 1.5px solid; }
+    .btn-es { color: #e74c3c; border-color: #e74c3c; }
+    .btn-es:hover { background: #e74c3c; color: white; transform: translateY(-2px); }
     
     footer { text-align: center; margin-top: 50px; color: #95a5a6; font-size: 0.8rem; padding: 20px; border-top: 1px solid #ddd; }
   </style>
@@ -36,32 +51,26 @@
 
   <header>
     <h1>PhyChem Virtual Lab</h1>
-    <p>Simulaciones Interactivas / Interactive Science Simulations</p>
+    <p>Simulaciones Interactivas de Física y Química | EAG1964</p>
   </header>
 
   <section class="course-section">
     <div class="course-header">2º ESO <span class="tag">Secundaria</span></div>
     <table>
-      <thead>
-        <tr>
-          <th width="60%">Simulación / Simulation</th>
-          <th>Idiomas / Languages</th>
-        </tr>
-      </thead>
+      <thead><tr><th width="65%">Simulación / Simulation</th><th>Acceso</th></tr></thead>
       <tbody>
         <tr>
           <td><strong>Factores de Conversión y Unidades</strong></td>
-          <td>
-            <a href="https://EAG1964.github.io/Simulador_Cambio_Unidades_1/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a>
-            <span class="btn btn-en">🇬🇧 English (Soon)</span>
-          </td>
+          <td><a href="https://EAG1964.github.io/Simulador_Cambio_Unidades_1/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a></td>
         </tr>
         <tr>
-          <td><strong>Iniciación al Átomo (Bohr)</strong></td>
           <td>
-            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a>
-            <span class="btn btn-en">🇬🇧 English (Soon)</span>
+            <strong>Iniciación al Átomo (Modelo de Bohr)</strong><br>
+            <div class="preview-container">
+                <img src="preview-bohr.jpeg" class="preview-img" alt="Vista previa Bohr">
+            </div>
           </td>
+          <td><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a></td>
         </tr>
       </tbody>
     </table>
@@ -70,19 +79,15 @@
   <section class="course-section">
     <div class="course-header">3º ESO <span class="tag">Secundaria</span></div>
     <table>
-      <thead>
-        <tr>
-          <th width="60%">Simulación / Simulation</th>
-          <th>Idiomas / Languages</th>
-        </tr>
-      </thead>
       <tbody>
         <tr>
-          <td><strong>Estructura Atómica</strong></td>
-          <td>
-            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a>
-            <span class="btn btn-en">🇬🇧 English (Soon)</span>
+          <td width="65%">
+            <strong>Estructura Atómica y Corteza</strong><br>
+            <div class="preview-container">
+                <img src="preview-bohr.jpeg" class="preview-img" alt="Vista previa Bohr">
+            </div>
           </td>
+          <td><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a></td>
         </tr>
       </tbody>
     </table>
@@ -91,19 +96,15 @@
   <section class="course-section">
     <div class="course-header">4º ESO <span class="tag">Secundaria</span></div>
     <table>
-      <thead>
-        <tr>
-          <th width="60%">Simulación / Simulation</th>
-          <th>Idiomas / Languages</th>
-        </tr>
-      </thead>
       <tbody>
         <tr>
-          <td><strong>Modelos Atómicos: El Salto Cuántico</strong></td>
-          <td>
-            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a>
-            <span class="btn btn-en">🇬🇧 English (Soon)</span>
+          <td width="65%">
+            <strong>Modelos Atómicos: El Salto Cuántico</strong><br>
+            <div class="preview-container">
+                <img src="preview-bohr.jpeg" class="preview-img" alt="Vista previa Bohr">
+            </div>
           </td>
+          <td><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a></td>
         </tr>
       </tbody>
     </table>
@@ -112,19 +113,15 @@
   <section class="course-section">
     <div class="course-header">1º Bachillerato <span class="tag">Bachillerato</span></div>
     <table>
-      <thead>
-        <tr>
-          <th width="60%">Simulación / Simulation</th>
-          <th>Idiomas / Languages</th>
-        </tr>
-      </thead>
       <tbody>
         <tr>
-          <td><strong>Espectroscopía Atómica</strong></td>
-          <td>
-            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a>
-            <span class="btn btn-en">🇬🇧 English (Soon)</span>
+          <td width="65%">
+            <strong>Espectroscopía Atómica de Emisión</strong><br>
+            <div class="preview-container">
+                <img src="preview-bohr.jpeg" class="preview-img" alt="Vista previa Bohr">
+            </div>
           </td>
+          <td><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a></td>
         </tr>
       </tbody>
     </table>
@@ -133,19 +130,15 @@
   <section class="course-section">
     <div class="course-header" style="background: var(--physics);">2º Bachillerato - FÍSICA <span class="tag">Bachillerato</span></div>
     <table>
-      <thead>
-        <tr>
-          <th width="60%">Simulación / Simulation</th>
-          <th>Idiomas / Languages</th>
-        </tr>
-      </thead>
       <tbody>
         <tr>
-          <td><strong>Física Cuántica: Espectro del Hidrógeno (Series)</strong></td>
-          <td>
-            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a>
-            <span class="btn btn-en">🇬🇧 English (Soon)</span>
+          <td width="65%">
+            <strong>Física Cuántica: Series Espectrales del Hidrógeno</strong><br>
+            <div class="preview-container">
+                <img src="preview-bohr.jpeg" class="preview-img" alt="Vista previa Bohr">
+            </div>
           </td>
+          <td><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a></td>
         </tr>
       </tbody>
     </table>
@@ -154,19 +147,15 @@
   <section class="course-section">
     <div class="course-header" style="background: var(--chemistry);">2º Bachillerato - QUÍMICA <span class="tag">Bachillerato</span></div>
     <table>
-      <thead>
-        <tr>
-          <th width="60%">Simulación / Simulation</th>
-          <th>Idiomas / Languages</th>
-        </tr>
-      </thead>
       <tbody>
         <tr>
-          <td><strong>Estructura de la Materia: Modelo Atómico de Bohr</strong></td>
-          <td>
-            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a>
-            <span class="btn btn-en">🇬🇧 English (Soon)</span>
+          <td width="65%">
+            <strong>Estructura de la Materia: El Modelo de Bohr</strong><br>
+            <div class="preview-container">
+                <img src="preview-bohr.jpeg" class="preview-img" alt="Vista previa Bohr">
+            </div>
           </td>
+          <td><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" rel="noopener noreferrer" class="btn btn-es">🇪🇸 Abrir</a></td>
         </tr>
       </tbody>
     </table>
@@ -174,7 +163,7 @@
 
   <footer>
     &copy; 2026 <strong>PhyChem Virtual Lab</strong> - EAG1964 <br>
-    Built with Science & Passion | Simulaciones para Física y Química
+    Recursos didácticos interactivos para el aula de ciencias
   </footer>
 
 </body>
