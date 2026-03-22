@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PhyChem Virtual Lab | EAG1964</title>
   <style>
-    :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f8f9fa; --bach: #2980b9; }
+    :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f8f9fa; --accent-blue: #007bff; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; max-width: 1000px; margin: 40px auto; padding: 20px; background-color: var(--bg); color: #333; }
-    header { text-align: center; margin-bottom: 40px; border-bottom: 4px solid var(--secondary); padding-bottom: 20px; }
-    h1 { color: var(--primary); margin: 0; font-size: 2.8rem; }
     
+    header { text-align: center; margin-bottom: 40px; border-bottom: 4px solid var(--secondary); padding-bottom: 20px; }
+    header h1 { color: var(--accent-blue); margin: 0; font-size: 3rem; font-weight: bold; }
+    header p { color: #000; font-weight: bold; margin: 5px 0; font-size: 1.1rem; }
+
     .course-section { margin-top: 30px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; margin-bottom: 35px; }
     .course-header { background: var(--primary); color: white; padding: 12px 20px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
     .tag { font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; text-transform: uppercase; }
@@ -18,7 +20,7 @@
     .split-container { display: flex; border-bottom: 1px solid #eee; background: #fff; }
     .split-column { width: 50%; padding: 20px; display: flex; flex-direction: column; border-right: 1px solid #eee; }
     .split-column:last-child { border-right: none; }
-    .column-title { font-weight: bold; color: var(--primary); margin-bottom: 15px; min-height: 45px; font-size: 1rem; line-height: 1.2; }
+    .column-title { font-weight: bold; color: var(--primary); margin-bottom: 15px; min-height: 45px; font-size: 1rem; }
     .column-content { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
     
     /* Fila Simple */
@@ -28,11 +30,11 @@
     .preview-img { width: 140px; height: auto; border-radius: 6px; border: 1px solid #ddd; transition: 0.3s; cursor: zoom-in; flex-shrink: 0; }
     .preview-img:hover { transform: scale(2.2); z-index: 999; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
     
-    .btn { text-decoration: none; padding: 10px 18px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; transition: 0.2s; border: 1.5px solid; text-align: center; min-width: 80px; }
+    .btn { text-decoration: none; padding: 10px 18px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; transition: 0.2s; border: 1.5px solid; text-align: center; min-width: 85px; }
     .btn-es { color: #e74c3c; border-color: #e74c3c; }
-    .btn-es:hover { background: #e74c3c; color: white; transform: translateY(-2px); }
+    .btn-es:hover { background: #e74c3c; color: white; }
     .btn-en { color: #3498db; border-color: #3498db; }
-    .btn-en:hover { background: #3498db; color: white; transform: translateY(-2px); }
+    .btn-en:hover { background: #3498db; color: white; }
     
     footer { text-align: center; color: #7f8c8d; font-size: 0.9rem; margin-top: 50px; padding-bottom: 40px; }
   </style>
@@ -41,7 +43,8 @@
 
   <header>
     <h1>PhyChem Virtual Lab</h1>
-    <p>Simulaciones Interactivas de Física y Química | EAG1964</p>
+    <p><b>Simulaciones Interactivas de Física y Química | EAG1964</b></p>
+    <p><b>Interactive Physics and Chemistry Simulations | EAG1964</b></p>
   </header>
 
   <section class="course-section">
@@ -92,6 +95,26 @@
   </section>
 
   <section class="course-section">
+    <div class="course-header">4º ESO <span class="tag">Secundaria / Secondary</span></div>
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES El átomo y los niveles de energía (Bohr)</div>
+        <div class="column-content">
+          <img src="preview-bohr.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a>
+        </div>
+      </div>
+      <div class="split-column">
+        <div class="column-title">GB The atom and energy levels (Bohr)</div>
+        <div class="column-content">
+          <img src="preview-bohr-EN.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="course-section">
     <div class="course-header" style="background: var(--bach);">1º BACHILLERATO <span class="tag">Física y Química / Physics & Chemistry</span></div>
     <div class="split-container">
       <div class="split-column">
@@ -131,8 +154,28 @@
     </div>
   </section>
 
+  <section class="course-section">
+    <div class="course-header" style="background: #8e44ad;">2º BACHILLERATO <span class="tag">Química / Chemistry</span></div>
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES Estructura Atómica y Modelo de Bohr</div>
+        <div class="column-content">
+          <img src="preview-bohr.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a>
+        </div>
+      </div>
+      <div class="split-column">
+        <div class="column-title">GB Atomic Structure and Bohr Model</div>
+        <div class="column-content">
+          <img src="preview-bohr-EN.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <img src="https://komarev.com/ghpvc/?username=EAG1964&color=blue&style=flat" alt="Visitas"><br><br>
+    <img src="https://komarev.com/ghpvc/?username=EAG1964&color=blue&style=flat" alt="Visitor Counter"><br><br>
     &copy; 2026 <strong>PhyChem Virtual Lab</strong> - EAG1964
   </footer>
 
