@@ -5,40 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PhyChem Virtual Lab | EAG1964</title>
   <style>
-    :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f8f9fa; --physics: #2980b9; --chemistry: #8e44ad; }
+    :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f8f9fa; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; max-width: 1000px; margin: 40px auto; padding: 20px; background-color: var(--bg); color: #333; }
     header { text-align: center; margin-bottom: 40px; border-bottom: 4px solid var(--secondary); padding-bottom: 20px; }
     h1 { color: var(--primary); margin: 0; font-size: 2.8rem; }
-    .course-section { margin-top: 30px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: visible; }
-    .course-header { background: var(--primary); color: white; padding: 12px 20px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-radius: 10px 10px 0 0; }
+    .course-section { margin-top: 30px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; }
+    .course-header { background: var(--primary); color: white; padding: 12px 20px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
     .tag { font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; text-transform: uppercase; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid #eee; vertical-align: middle; }
-    th { background: #f1f2f6; font-size: 0.75rem; color: #7f8c8d; text-transform: uppercase; }
     
-    /* Diseño Simétrico para Bohr */
-    .simulator-container { display: flex; flex-direction: column; width: 100%; border-bottom: 1px solid #eee; }
-    .simulator-title-row { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; background-color: #f1f2f6; }
-    .title-col { width: 50%; padding: 15px 20px; font-weight: bold; color: var(--primary); font-size: 1.1rem; border-right: 1px solid #eee; }
-    .simulator-content-row { display: flex; justify-content: space-between; }
-    .version-container { width: 50%; padding: 20px; display: flex; flex-direction: column; align-items: flex-start; border-right: 1px solid #eee; }
-    .version-top { display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 15px; }
+    /* Nueva estructura simétrica */
+    .split-container { display: flex; border-bottom: 1px solid #eee; }
+    .split-column { width: 50%; padding: 20px; display: flex; flex-direction: column; border-right: 1px solid #eee; }
+    .split-column:last-child { border-right: none; }
+    .column-title { font-weight: bold; color: var(--primary); margin-bottom: 15px; min-height: 40px; }
+    .column-content { display: flex; justify-content: space-between; align-items: center; }
     
-    /* PREVISUALIZACIONES */
-    .preview-container { position: relative; display: inline-block; }
-    .preview-img { width: 130px; height: auto; border-radius: 6px; border: 1px solid #ddd; transition: all 0.3s ease-in-out; cursor: zoom-in; display: block; }
-    .preview-img:hover { transform: scale(2.5); box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 999; position: relative; }
+    .preview-img { width: 150px; height: auto; border-radius: 6px; border: 1px solid #ddd; transition: 0.3s; cursor: zoom-in; }
+    .preview-img:hover { transform: scale(2.2); z-index: 999; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
     
-    /* BOTONES */
-    .btn { text-decoration: none; padding: 8px 16px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; transition: 0.2s; display: inline-block; border: 1.5px solid; align-self: flex-end; }
+    .btn { text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 0.9rem; font-weight: bold; transition: 0.2s; border: 1.5px solid; text-align: center; min-width: 80px; }
     .btn-es { color: #e74c3c; border-color: #e74c3c; }
-    .btn-es:hover { background: #e74c3c; color: white; transform: translateY(-2px); }
+    .btn-es:hover { background: #e74c3c; color: white; }
     .btn-en { color: #3498db; border-color: #3498db; }
-    .btn-en:hover { background: #3498db; color: white; transform: translateY(-2px); }
-    .btn-soon { color: #95a5a6; border-color: #bdc3c7; opacity: 0.6; cursor: not-allowed; font-style: italic; }
+    .btn-en:hover { background: #3498db; color: white; }
     
-    .visit-counter { text-align: center; margin: 50px 0 20px 0; padding: 20px; border-top: 1px solid #eee; }
-    footer { text-align: center; color: #95a5a6; font-size: 0.85rem; padding-bottom: 40px; }
+    .simple-row { padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
   </style>
 </head>
 <body>
@@ -46,51 +37,33 @@
 
   <section class="course-section">
     <div class="course-header">2º ESO <span class="tag">Secundaria / Secondary</span></div>
-    <table>
-      <thead><tr><th width="60%">Simulación / Simulation</th><th>Acceso / Access</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong>Cambio de Unidades con Factores de Conversión 1</strong><br><div class="preview-container"><img src="Preview_Cambio_Unidades_1.jpg" class="preview-img" alt="Units 1"></div></td>
-          <td><a href="https://EAG1964.github.io/Simulador_Cambio_Unidades_1/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a></td>
-        </tr>
-        <tr>
-          <td><strong>Cambio de Unidades con Factores de Conversión 2</strong><br><small style="color:#7f8c8d;">(Tiempo, densidad y velocidad)</small></td>
-          <td><span class="btn btn-soon">Próximamente / Coming Soon</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="simple-row">
+      <div><strong>Cambio de Unidades con Factores de Conversión 1</strong><br>
+      <img src="Preview_Cambio_Unidades_1.jpg" class="preview-img" style="margin-top:10px;"></div>
+      <a href="https://EAG1964.github.io/Simulador_Cambio_Unidades_1/" target="_blank" class="btn btn-es">ES Abrir</a>
+    </div>
   </section>
 
   <section class="course-section">
     <div class="course-header">Multi-Cursos <span class="tag">Modelo de Bohr / Bohr Model</span></div>
-    
-    <div class="simulator-container">
-      <div class="simulator-title-row">
-        <div class="title-col">🇪🇸 Iniciación al Átomo (Modelo de Bohr)</div>
-        <div class="title-col">🇬🇧 Introduction to the Atom (Bohr Model)</div>
-      </div>
-      <div class="simulator-content-row">
-        <div class="version-container">
-          <div class="version-top">
-            <div class="preview-container"><img src="preview-bohr.jpg" class="preview-img" alt="Bohr ES"></div>
-            <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">🇪🇸 Abrir</a>
-          </td>
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES Iniciación al Átomo (Modelo de Bohr)</div>
+        <div class="column-content">
+          <img src="preview-bohr.jpg" class="preview-img" alt="Bohr ES">
+          <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a>
         </div>
-        <div class="version-container">
-          <div class="version-top">
-            <div class="preview-container"><img src="preview-bohr-EN.jpg" class="preview-img" alt="Bohr EN"></div>
-            <a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">🇬🇧 English</a>
-          </td>
+      </div>
+      <div class="split-column">
+        <div class="column-title">GB Introduction to the Atom (Bohr Model)</div>
+        <div class="column-content">
+          <img src="preview-bohr-EN.jpg" class="preview-img" alt="Bohr EN">
+          <a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="visit-counter">
-    <p style="font-size: 0.8rem; color: #7f8c8d; margin-bottom: 10px;">IMPACTO DEL LABORATORIO / VISITS:</p>
-    <img src="https://komarev.com/ghpvc/?username=EAG1964&color=blue&style=flat" alt="Visitor Counter">
-  </div>
-  
-  <footer>&copy; 2026 <strong>PhyChem Virtual Lab</strong> - EAG1964</footer>
+  <footer><center><br>&copy; 2026 <strong>PhyChem Virtual Lab</strong> - EAG1964</center></footer>
 </body>
 </html>
