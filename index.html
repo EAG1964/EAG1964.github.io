@@ -23,7 +23,7 @@
     .column-content { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
     
     .preview-img { width: 140px; height: auto; border-radius: 6px; border: 1px solid #ddd; transition: 0.3s; cursor: zoom-in; flex-shrink: 0; }
-    .preview-img:hover { transform: scale(2.2); z-index: 999; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+    .preview-img:hover { transform: scale(1.2); z-index: 999; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
     
     .btn { text-decoration: none; padding: 10px 18px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; transition: 0.2s; border: 1.5px solid; text-align: center; min-width: 85px; }
     .btn-es { color: #e74c3c; border-color: #e74c3c; }
@@ -32,6 +32,19 @@
     .btn-en:hover { background: #3498db; color: white; }
     
     footer { text-align: center; color: #7f8c8d; font-size: 0.9rem; margin-top: 50px; padding-bottom: 40px; }
+
+    /* RESPONSIVE PARA MÓVILES */
+    @media (max-width: 768px) {
+      body { margin: 10px; padding: 10px; }
+      header h1 { font-size: 2rem; }
+      .split-container { flex-direction: column; }
+      .split-column { width: 100%; border-right: none; border-bottom: 1px solid #eee; }
+      .split-column:last-child { border-bottom: none; }
+      .column-content { flex-direction: column; align-items: center; text-align: center; }
+      .preview-img { width: 100%; max-width: 220px; margin-bottom: 10px; }
+      .btn { width: 100%; max-width: 200px; }
+      .course-header { flex-direction: column; gap: 5px; text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -179,11 +192,14 @@
   </section>
 
   <footer>
-    <div style="margin-bottom: 15px;">
-      <img src="https://img.shields.io/badge/VISITS-blue?style=flat-square&logo=github&labelColor=333" id="visitor-badge" alt="Visitas">
+    <div style="margin-bottom: 10px;">
+      <img src="https://img.shields.io/badge/VISITS-blue?style=flat-square&logo=github&labelColor=333" alt="Visitas">
     </div>
-    &copy; 2026 <strong>PhyChem Virtual Lab</strong> - EAG1964
+    <p>&copy; <span id="year"></span> <strong> PhyChem Virtual Lab</strong> - EAG1964</p>
   </footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
