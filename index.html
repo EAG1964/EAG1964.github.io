@@ -5,65 +5,136 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PhyChem Virtual Lab | EAG1964</title>
   <style>
-    :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f8f9fa; }
+    :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f8f9fa; --bach: #2980b9; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; max-width: 1000px; margin: 40px auto; padding: 20px; background-color: var(--bg); color: #333; }
     header { text-align: center; margin-bottom: 40px; border-bottom: 4px solid var(--secondary); padding-bottom: 20px; }
     h1 { color: var(--primary); margin: 0; font-size: 2.8rem; }
-    .course-section { margin-top: 30px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; }
+    
+    .course-section { margin-top: 30px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; margin-bottom: 35px; }
     .course-header { background: var(--primary); color: white; padding: 12px 20px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
     .tag { font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; text-transform: uppercase; }
     
-    /* Nueva estructura simétrica */
-    .split-container { display: flex; border-bottom: 1px solid #eee; }
+    /* Contenedor Bilingüe Simétrico */
+    .split-container { display: flex; border-bottom: 1px solid #eee; background: #fff; }
     .split-column { width: 50%; padding: 20px; display: flex; flex-direction: column; border-right: 1px solid #eee; }
     .split-column:last-child { border-right: none; }
-    .column-title { font-weight: bold; color: var(--primary); margin-bottom: 15px; min-height: 40px; }
-    .column-content { display: flex; justify-content: space-between; align-items: center; }
+    .column-title { font-weight: bold; color: var(--primary); margin-bottom: 15px; min-height: 45px; font-size: 1rem; line-height: 1.2; }
+    .column-content { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
     
-    .preview-img { width: 150px; height: auto; border-radius: 6px; border: 1px solid #ddd; transition: 0.3s; cursor: zoom-in; }
+    /* Fila Simple */
+    .simple-row { padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+    .sim-info { display: flex; align-items: center; gap: 20px; }
+
+    .preview-img { width: 140px; height: auto; border-radius: 6px; border: 1px solid #ddd; transition: 0.3s; cursor: zoom-in; flex-shrink: 0; }
     .preview-img:hover { transform: scale(2.2); z-index: 999; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
     
-    .btn { text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 0.9rem; font-weight: bold; transition: 0.2s; border: 1.5px solid; text-align: center; min-width: 80px; }
+    .btn { text-decoration: none; padding: 10px 18px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; transition: 0.2s; border: 1.5px solid; text-align: center; min-width: 80px; }
     .btn-es { color: #e74c3c; border-color: #e74c3c; }
-    .btn-es:hover { background: #e74c3c; color: white; }
+    .btn-es:hover { background: #e74c3c; color: white; transform: translateY(-2px); }
     .btn-en { color: #3498db; border-color: #3498db; }
-    .btn-en:hover { background: #3498db; color: white; }
+    .btn-en:hover { background: #3498db; color: white; transform: translateY(-2px); }
     
-    .simple-row { padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+    footer { text-align: center; color: #7f8c8d; font-size: 0.9rem; margin-top: 50px; padding-bottom: 40px; }
   </style>
 </head>
 <body>
-  <header><h1>PhyChem Virtual Lab</h1><p>Simulaciones Interactivas de Física y Química | EAG1964</p></header>
+
+  <header>
+    <h1>PhyChem Virtual Lab</h1>
+    <p>Simulaciones Interactivas de Física y Química | EAG1964</p>
+  </header>
 
   <section class="course-section">
     <div class="course-header">2º ESO <span class="tag">Secundaria / Secondary</span></div>
     <div class="simple-row">
-      <div><strong>Cambio de Unidades con Factores de Conversión 1</strong><br>
-      <img src="Preview_Cambio_Unidades_1.jpg" class="preview-img" style="margin-top:10px;"></div>
+      <div class="sim-info">
+        <img src="Preview_Cambio_Unidades_1.jpg" class="preview-img" alt="Units 1">
+        <strong>Cambio de Unidades con Factores de Conversión 1</strong>
+      </div>
       <a href="https://EAG1964.github.io/Simulador_Cambio_Unidades_1/" target="_blank" class="btn btn-es">ES Abrir</a>
     </div>
-  </section>
-
-  <section class="course-section">
-    <div class="course-header">Multi-Cursos <span class="tag">Modelo de Bohr / Bohr Model</span></div>
     <div class="split-container">
       <div class="split-column">
         <div class="column-title">ES Iniciación al Átomo (Modelo de Bohr)</div>
         <div class="column-content">
-          <img src="preview-bohr.jpg" class="preview-img" alt="Bohr ES">
+          <img src="preview-bohr.jpg" class="preview-img">
           <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a>
         </div>
       </div>
       <div class="split-column">
         <div class="column-title">GB Introduction to the Atom (Bohr Model)</div>
         <div class="column-content">
-          <img src="preview-bohr-EN.jpg" class="preview-img" alt="Bohr EN">
+          <img src="preview-bohr-EN.jpg" class="preview-img">
           <a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer><center><br>&copy; 2026 <strong>PhyChem Virtual Lab</strong> - EAG1964</center></footer>
+  <section class="course-section">
+    <div class="course-header">3º ESO <span class="tag">Secundaria / Secondary</span></div>
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES Estructura Atómica (Modelo de Bohr)</div>
+        <div class="column-content">
+          <img src="preview-bohr.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a>
+        </div>
+      </div>
+      <div class="split-column">
+        <div class="column-title">GB Atomic Structure (Bohr Model)</div>
+        <div class="column-content">
+          <img src="preview-bohr-EN.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="course-section">
+    <div class="course-header" style="background: var(--bach);">1º BACHILLERATO <span class="tag">Física y Química / Physics & Chemistry</span></div>
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES El átomo de Bohr y los espectros atómicos</div>
+        <div class="column-content">
+          <img src="preview-bohr.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a>
+        </div>
+      </div>
+      <div class="split-column">
+        <div class="column-title">GB Bohr's atom and atomic spectra</div>
+        <div class="column-content">
+          <img src="preview-bohr-EN.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="course-section">
+    <div class="course-header" style="background: #1a5276;">2º BACHILLERATO <span class="tag">Física / Physics</span></div>
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES Física Cuántica: Series del Hidrógeno</div>
+        <div class="column-content">
+          <img src="preview-bohr.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a>
+        </div>
+      </div>
+      <div class="split-column">
+        <div class="column-title">GB Quantum Physics: Hydrogen Series</div>
+        <div class="column-content">
+          <img src="preview-bohr-EN.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <img src="https://komarev.com/ghpvc/?username=EAG1964&color=blue&style=flat" alt="Visitas"><br><br>
+    &copy; 2026 <strong>PhyChem Virtual Lab</strong> - EAG1964
+  </footer>
+
 </body>
 </html>
