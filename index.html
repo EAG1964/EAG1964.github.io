@@ -23,8 +23,7 @@
     .column-content { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
     
     .preview-img { width: 140px; height: auto; border-radius: 6px; border: 1px solid #ddd; transition: 0.3s; cursor: zoom-in; flex-shrink: 0; }
-    /* Zoom 1.2 solicitado */
-    .preview-img:hover { transform: scale(1.2); z-index: 999; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+    .preview-img:hover { transform: scale(2.2); z-index: 999; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
     
     .btn { text-decoration: none; padding: 10px 18px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; transition: 0.2s; border: 1.5px solid; text-align: center; min-width: 85px; }
     .btn-es { color: #e74c3c; border-color: #e74c3c; }
@@ -33,19 +32,6 @@
     .btn-en:hover { background: #3498db; color: white; }
     
     footer { text-align: center; color: #7f8c8d; font-size: 0.9rem; margin-top: 50px; padding-bottom: 40px; }
-
-    /* RESPONSIVE PARA MOVILES */
-    @media (max-width: 768px) {
-      body { margin: 10px; padding: 10px; }
-      header h1 { font-size: 2rem; }
-      .split-container { flex-direction: column; }
-      .split-column { width: 100%; border-right: none; border-bottom: 1px solid #eee; }
-      .split-column:last-child { border-bottom: none; }
-      .column-content { flex-direction: column; align-items: center; text-align: center; }
-      .preview-img { width: 100%; max-width: 220px; margin-bottom: 10px; }
-      .btn { width: 100%; max-width: 200px; }
-      .course-header { flex-direction: column; gap: 5px; text-align: center; }
-    }
   </style>
 </head>
 <body>
@@ -92,15 +78,52 @@
     </div>
   </section>
 
+  <section class="course-section">
+    <div class="course-header">3º ESO</div>
+    <div class="split-container">
+      <div class="split-column"><div class="column-title">ES Estructura Atómica (Bohr)</div><div class="column-content"><img src="preview-bohr.jpg" class="preview-img"><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a></div></div>
+      <div class="split-column"><div class="column-title">GB Atomic Structure (Bohr)</div><div class="column-content"><img src="preview-bohr-EN.jpg" class="preview-img"><a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a></div></div>
+    </div>
+  </section>
+
+  <section class="course-section">
+    <div class="course-header">4º ESO</div>
+    <div class="split-container">
+      <div class="split-column"><div class="column-title">ES El átomo y niveles (Bohr)</div><div class="column-content"><img src="preview-bohr.jpg" class="preview-img"><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a></div></div>
+      <div class="split-column"><div class="column-title">GB Atom and levels (Bohr)</div><div class="column-content"><img src="preview-bohr-EN.jpg" class="preview-img"><a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a></div></div>
+    </div>
+  </section>
+
+  <section class="course-section">
+    <div class="course-header" style="background: #2980b9;">1º BACHILLERATO</div>
+    <div class="split-container">
+      <div class="split-column"><div class="column-title">ES Bohr y espectros</div><div class="column-content"><img src="preview-bohr.jpg" class="preview-img"><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a></div></div>
+      <div class="split-column"><div class="column-title">GB Bohr and spectra</div><div class="column-content"><img src="preview-bohr-EN.jpg" class="preview-img"><a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a></div></div>
+    </div>
+  </section>
+
+  <section class="course-section">
+    <div class="course-header" style="background: #1a5276;">2º BACHILLERATO FÍSICA</div>
+    <div class="split-container">
+      <div class="split-column"><div class="column-title">ES Física Cuántica: Hidrógeno</div><div class="column-content"><img src="preview-bohr.jpg" class="preview-img"><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a></div></div>
+      <div class="split-column"><div class="column-title">GB Quantum Physics: Hydrogen</div><div class="column-content"><img src="preview-bohr-EN.jpg" class="preview-img"><a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a></div></div>
+    </div>
+  </section>
+
+  <section class="course-section">
+    <div class="course-header" style="background: #8e44ad;">2º BACHILLERATO QUÍMICA</div>
+    <div class="split-container">
+      <div class="split-column"><div class="column-title">ES Estructura Atómica y Bohr</div><div class="column-content"><img src="preview-bohr.jpg" class="preview-img"><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="blank btn btn-es">ES Abrir</a></div></div>
+      <div class="split-column"><div class="column-title">GB Atomic Structure and Bohr</div><div class="column-content"><img src="preview-bohr-EN.jpg" class="preview-img"><a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a></div></div>
+    </div>
+  </section>
+
   <footer>
     <div style="margin-bottom: 10px;">
-      <img src="https://count.getloli.com/get/@eag1964-phychem-lab?theme=rule734" alt="Visitas">
+      <img src="https://visitor-badge.laobi.icu/badge?page_id=EAG1964.phychem.lab&left_color=gray&right_color=blue" alt="Web Visits">
     </div>
-    <p>&copy; <span id="year"></span> <strong> PhyChem Virtual Lab</strong> - EAG1964</p>
+    &copy; 2026 <strong>PhyChem Virtual Lab</strong> - EAG1964
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
