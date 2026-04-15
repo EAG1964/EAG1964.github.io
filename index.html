@@ -1,125 +1,249 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PhyChem Virtual Lab by EAG1964: Interactive Physics and Chemistry simulations.">
-  <title>PhyChem Virtual Lab | EAG1964</title>
-  <style>
-    :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f8f9fa; --accent: #007bff; }
-    body { font-family: 'Segoe UI', system-ui, sans-serif; max-width: 1000px; margin: 40px auto; padding: 20px; background: var(--bg); color: #333; }
-    header { text-align: center; margin-bottom: 40px; border-bottom: 4px solid var(--secondary); padding-bottom: 20px; }
-    header h1 { color: var(--accent); font-size: 2.8rem; margin: 0; }
-    .course-section { background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; margin-bottom: 30px; }
-    .course-header { background: var(--primary); color: white; padding: 12px 20px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
-    .tag { font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; }
-    .split-container { display: flex; border-bottom: 1px solid #eee; }
-    .split-column { width: 50%; padding: 15px 20px; display: flex; flex-direction: column; border-right: 1px solid #eee; }
-    .split-column:last-child { border-right: none; }
-    .column-title { font-weight: bold; color: var(--primary); margin-bottom: 10px; min-height: 40px; }
-    .column-content { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-    .preview-img { width: 130px; border-radius: 6px; border: 1px solid #ddd; transition: 0.3s; cursor: zoom-in; }
-    .preview-img:hover { transform: scale(1.15); z-index: 10; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-    .btn { text-decoration: none; padding: 8px 15px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; border: 1.5px solid; transition: 0.2s; text-align: center; min-width: 80px; }
-    .btn-es { color: #e74c3c; border-color: #e74c3c; }
-    .btn-es:hover { background: #e74c3c; color: white; }
-    .btn-en { color: #3498db; border-color: #3498db; }
-    .btn-en:hover { background: #3498db; color: white; }
-    footer { text-align: center; padding: 40px 0; color: #7f8c8d; }
-    @media (max-width: 768px) { .split-container { flex-direction: column; } .split-column { width: 100%; border-right: none; border-bottom: 1px solid #eee; } .column-content { flex-direction: column; text-align: center; } .preview-img { width: 100%; max-width: 180px; } }
-  </style>
+  <meta name="google-site-verification" content="LCeg2Yj_xbbNydkhiczsgm1iYgimzkV5R9_UiBOXTXA" />
+  <meta name="description" content="PhyChem Virtual Lab by EAG1964: Interactive Physics and Chemistry simulations for Secondary and High School. Bohr model, unit conversions, inclined plane and more. | Simuladores interactivos de Física y Química para ESO y Bachillerato.">
+  <meta name="keywords" content="Bohr model, atom simulator, unit conversion, inclined plane, physics simulations, chemistry lab, simulador bohr, física y química, factores de conversión, plano inclinado, EAG1964, science interactives">
+  <meta name="author" content="EAG1964">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhyChem Virtual Lab | EAG1964</title>
+  <style>
+    :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f8f9fa; --accent-blue: #007bff; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; max-width: 1000px; margin: 40px auto; padding: 20px; background-color: var(--bg); color: #333; }
+    
+    header { text-align: center; margin-bottom: 40px; border-bottom: 4px solid var(--secondary); padding-bottom: 20px; }
+    header h1 { color: var(--accent-blue); margin: 0; font-size: 3rem; font-weight: bold; }
+    header p { color: #000; font-weight: bold; margin: 5px 0; font-size: 1.1rem; }
+
+    .course-section { margin-top: 30px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; margin-bottom: 35px; }
+    .course-header { background: var(--primary); color: white; padding: 12px 20px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+    .tag { font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; text-transform: uppercase; }
+    
+    .split-container { display: flex; border-bottom: 1px solid #eee; background: #fff; }
+    .split-column { width: 50%; padding: 20px; display: flex; flex-direction: column; border-right: 1px solid #eee; }
+    .split-column:last-child { border-right: none; }
+    .column-title { font-weight: bold; color: var(--primary); margin-bottom: 15px; min-height: 45px; font-size: 1rem; }
+    .column-content { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    
+    .preview-img { width: 140px; height: auto; border-radius: 6px; border: 1px solid #ddd; transition: 0.3s; cursor: zoom-in; flex-shrink: 0; }
+    
+    .preview-img:hover { transform: scale(1.2); z-index: 999; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+    
+    .btn { text-decoration: none; padding: 10px 18px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; transition: 0.2s; border: 1.5px solid; text-align: center; min-width: 85px; }
+    .btn-es { color: #e74c3c; border-color: #e74c3c; }
+    .btn-es:hover { background: #e74c3c; color: white; }
+    .btn-en { color: #3498db; border-color: #3498db; }
+    .btn-en:hover { background: #3498db; color: white; }
+    
+    footer { text-align: center; color: #7f8c8d; font-size: 0.9rem; margin-top: 50px; padding-bottom: 40px; }
+
+    @media (max-width: 768px) {
+      body { margin: 10px; padding: 10px; }
+      header h1 { font-size: 2rem; }
+      .split-container { flex-direction: column; }
+      .split-column { width: 100%; border-right: none; border-bottom: 1px solid #eee; }
+      .split-column:last-child { border-bottom: none; }
+      .column-content { flex-direction: column; align-items: center; text-align: center; }
+      .preview-img { width: 100%; max-width: 220px; margin-bottom: 10px; }
+      .btn { width: 100%; max-width: 200px; }
+      .course-header { flex-direction: column; gap: 5px; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>PhyChem Virtual Lab</h1>
-  <p><b>Simulaciones de Física y Química | EAG1964</b></p>
-</header>
+  <header>
+    <h1>PhyChem Virtual Lab</h1>
+    <p><b>Simulaciones Interactivas de Física y Química | EAG1964</b></p>
+    <p><b>Interactive Physics and Chemistry Simulations | EAG1964</b></p>
+  </header>
 
-<section class="course-section">
-  <div class="course-header">2º ESO <span class="tag">Secundaria</span></div>
-  <div class="split-container">
-    <div class="split-column">
-      <div class="column-title">ES Unidades 1</div>
-      <div class="column-content"><img src="Preview_Cambio_Unidades_1.jpg" class="preview-img"><a href="https://EAG1964.github.io/Simulador_Cambio_Unidades_1/" target="_blank" class="btn btn-es">ES Abrir</a></div>
-    </div>
-    <div class="split-column">
-      <div class="column-title">GB Units 1</div>
-      <div class="column-content"><img src="Preview_Change_Units_1.jpg" class="preview-img"><a href="https://EAG1964.github.io/Simulator_Change_Units_1/" target="_blank" class="btn btn-en">GB Open</a></div>
-    </div>
-  </div>
-  <div class="split-container">
-    <div class="split-column">
-      <div class="column-title">ES El Rayo</div>
-      <div class="column-content"><img src="Preview_Rayo.jpg" class="preview-img"><a href="https://EAG1964.github.io/Simulador_Rayo/" target="_blank" class="btn btn-es">ES Abrir</a></div>
-    </div>
-    <div class="split-column">
-      <div class="column-title">GB Lightning</div>
-      <div class="column-content"><img src="Preview_Lightning.jpg" class="preview-img"><a href="https://EAG1964.github.io/Simulator_Lightning/" target="_blank" class="btn btn-en">GB Open</a></div>
-    </div>
-  </div>
+  <section class="course-section">
+    <div class="course-header">2º ESO <span class="tag">Secundaria / Secondary</span></div>
+    
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES Cambio de Unidades con Factores de Conversión 1</div>
+        <div class="column-content">
+          <img src="Preview_Cambio_Unidades_1.jpg" class="preview-img" alt="Units ES 1">
+          <a href="https://EAG1964.github.io/Simulador_Cambio_Unidades_1/" target="_blank" class="btn btn-es">ES Abrir</a>
+        </div>
+      </div>
+      <div class="split-column">
+        <div class="column-title">GB Unit Conversion with Conversion Factors 1</div>
+        <div class="column-content">
+          <img src="Preview_Change_Units_1.jpg" class="preview-img" alt="Units EN 1">
+          <a href="https://EAG1964.github.io/Simulator_Change_Units_1/" target="_blank" class="btn btn-en">GB Open</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES Cambio de Unidades con Factores de Conversión 2</div>
+        <div class="column-content">
+          <img src="Preview_Cambio_Unidades_2.jpg" class="preview-img" alt="Units ES 2">
+          <a href="https://EAG1964.github.io/Simulador_Cambio_Unidades_2/" target="_blank" class="btn btn-es">ES Abrir</a>
+        </div>
+      </div>
+      <div class="split-column">
+        <div class="column-title">GB Unit Conversion with Conversion Factors 2</div>
+        <div class="column-content">
+          <img src="Preview_Change_Units_2.jpg" class="preview-img" alt="Units EN 2">
+          <a href="https://EAG1964.github.io/Simulator_Change_Units_2/" target="_blank" class="btn btn-en">GB Open</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES Electricidad: El Rayo (Inducción y descarga)</div>
+        <div class="column-content">
+          <img src="Preview_Rayo.jpg" class="preview-img" alt="Rayo ES">
+          <a href="https://EAG1964.github.io/Simulador_Rayo/" target="_blank" class="btn btn-es">ES Abrir</a>
+        </div>
+      </div>
+      <div class="split-column">
+        <div class="column-title">GB Electricity: Lightning (Induction & discharge)</div>
+        <div class="column-content">
+          <img src="Preview_Lightning.jpg" class="preview-img" alt="Lightning EN">
+          <a href="https://EAG1964.github.io/Simulator_Lightning/" target="_blank" class="btn btn-en">GB Open</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES Iniciación al Átomo (Modelo de Bohr)</div>
+        <div class="column-content">
+          <img src="preview-bohr.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a>
+        </div>
+      </div>
+      <div class="split-column">
+        <div class="column-title">GB Introduction to the Atom (Bohr Model)</div>
+        <div class="column-content">
+          <img src="preview-bohr-EN.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="course-section">
+    <div class="course-header">3º ESO <span class="tag">Secundaria / Secondary</span></div>
+    
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES Cambio de Unidades con Factores de Conversión 1</div>
+        <div class="column-content">
+          <img src="Preview_Cambio_Unidades_1.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/Simulador_Cambio_Unidades_1/" target="_blank" class="btn btn-es">ES Abrir</a>
+        </div>
+      </div>
+      <div class="split-column">
+        <div class="column-title">GB Unit Conversion with Conversion Factors 1</div>
+        <div class="column-content">
+          <img src="Preview_Change_Units_1.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/Simulator_Change_Units_1/" target="_blank" class="btn btn-en">GB Open</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES Cambio de Unidades con Factores de Conversión 2</div>
+        <div class="column-content">
+          <img src="Preview_Cambio_Unidades_2.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/Simulador_Cambio_Unidades_2/" target="_blank" class="btn btn-es">ES Abrir</a>
+        </div>
+Bloque 2:
+</div>
+      <div class="split-column">
+        <div class="column-title">GB Unit Conversion with Conversion Factors 2</div>
+        <div class="column-content">
+          <img src="Preview_Change_Units_2.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/Simulator_Change_Units_2/" target="_blank" class="btn btn-en">GB Open</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-container">
+      <div class="split-column">
+        <div class="column-title">ES Estructura Atómica (Bohr)</div>
+        <div class="column-content">
+          <img src="preview-bohr.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a>
+        </div>
+      </div>
+      <div class="split-column">
+        <div class="column-title">GB Atomic Structure (Bohr)</div>
+        <div class="column-content">
+          <img src="preview-bohr-EN.jpg" class="preview-img">
+          <a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="course-section">
+    <div class="course-header">4º ESO <span class="tag">Secundaria / Secondary</span></div>
+    <div class="split-container">
+      <div class="split-column"><div class="column-title">ES El átomo y niveles (Bohr)</div><div class="column-content"><img src="preview-bohr.jpg" class="preview-img"><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a></div></div>
+      <div class="split-column"><div class="column-title">GB Atom and levels (Bohr)</div><div class="column-content"><img src="preview-bohr-EN.jpg" class="preview-img"><a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a></div></div>
+    </div>
+    <div class="split-container">
+      <div class="split-column"><div class="column-title">ES Dinámica: Plano Inclinado</div><div class="column-content"><img src="Preview_Plano_Inclinado.jpg" class="preview-img"><a href="https://EAG1964.github.io/Plano_Inclinado/" target="_blank" class="btn btn-es">ES Abrir</a></div></div>
+      <div class="split-column"><div class="column-title">GB Dynamics: Inclined Plane</div><div class="column-content"><img src="Preview_Inclined_Plane.jpg" class="preview-img"><a href="https://EAG1964.github.io/Inclined_Plane/" target="_blank" class="btn btn-en">GB Open</a></div></div>
+    </div>
+  </section>
+
+  <section class="course-section">
+    <div class="course-header" style="background: #2980b9;">1º BACHILLERATO <span class="tag">Física y Química / Physics & Chemistry</span></div>
+    <div class="split-container">
+      <div class="split-column"><div class="column-title">ES Bohr y espectros</div><div class="column-content"><img src="preview-bohr.jpg" class="preview-img"><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a></div></div>
+      <div class="split-column"><div class="column-title">GB Bohr and spectra</div><div class="column-content"><img src="preview-bohr-EN.jpg" class="preview-img"><a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a></div></div>
+    </div>
+    <div class="split-container">
+      <div class="split-column"><div class="column-title">ES Dinámica: Fuerzas en Plano Inclinado</div><div class="column-content"><img src="Preview_Plano_Inclinado.jpg" class="preview-img"><a href="https://EAG1964.github.io/Plano_Inclinado/" target="_blank" class="btn btn-es">ES Abrir</a></div></div>
+      <div class="split-column"><div class="column-title">GB Dynamics: Inclined Plane Forces</div><div class="column-content"><img src="Preview_Inclined_Plane.jpg" class="preview-img"><a href="https://EAG1964.github.io/Inclined_Plane/" target="_blank" class="btn btn-en">GB Open</a></div></div>
+    </div>
+  </section>
+
+  <section class="course-section">
+    <div class="course-header" style="background: #1a5276;">2º BACHILLERATO <span class="tag">Física / Physics</span></div>
+    <div class="split-container">
+      <div class="split-column"><div class="column-title">ES Física Cuántica: Hidrógeno</div><div class="column-content"><img src="preview-bohr.jpg" class="preview-img"><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a></div></div>
+      <div class="split-column"><div class="column-title">GB Quantum Physics: Hydrogen</div><div class="column-content"><img src="preview-bohr-EN.jpg" class="preview-img"><a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a></div></div>
+    </div>
+  </section>
+
+  <section class="course-section">
+    <div class="course-header" style="background: #8e44ad;">2º BACHILLERATO <span class="tag">Química / Chemistry</span></div>
+    <div class="split-container">
+      <div class="split-column"><div class="column-title">ES Estructura Atómica y Bohr</div><div class="column-content"><img src="preview-bohr.jpg" class="preview-img"><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a></div></div>
+      <div class="split-column"><div class="column-title">GB Atomic Structure and Bohr</div><div class="column-content"><img src="preview-bohr-EN.jpg" class="preview-img"><a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <div style="margin-bottom: 10px;">
+      <img src="https://visitor-badge.laobi.icu/badge?page_id=EAG1964.phychem.lab&left_color=gray&right_color=blue" alt="Web Visits">
+    </div>
+    &copy; 2026 <strong>PhyChem Virtual Lab</strong> - EAG1964
+  </footer>
+
+<hr>
+
+<section style="padding: 20px; font-family: sans-serif; line-height: 1.6; max-width: 800px;">
+    <h2>Sobre PhyChem Virtual Lab / About</h2>
+    <div style="margin-bottom: 20px;">
+        <p><strong>Español:</strong> Bienvenido a mi laboratorio virtual de Física y Química. Aquí puedes encontrar herramientas interactivas como el <strong>Simulador del Átomo de Bohr</strong>, el estudio dinámico del <strong>Plano Inclinado</strong>, simulaciones sobre la formación de <strong>rayos</strong> y calculadoras de <strong>cambio de unidades</strong>. Estos recursos están diseñados para ayudar a estudiantes y profesores a visualizar conceptos científicos complejos de forma sencilla.</p>
+    </div>
+    <div>
+        <p><strong>English:</strong> Welcome to PhyChem Virtual Lab. Explore interactive science tools including the <strong>Bohr Atom Model Simulator</strong>, <strong>Inclined Plane</strong> dynamics, <strong>lightning</strong> formation physics, and <strong>unit conversion</strong> calculators. These resources are designed to help students and educators visualize complex physics and chemistry concepts through interactive simulation.</p>
+    </div>
 </section>
-
-<section class="course-section">
-  <div class="course-header">3º ESO <span class="tag">Secundaria</span></div>
-  <div class="split-container">
-    <div class="split-column">
-      <div class="column-title">ES Átomo de Bohr</div>
-      <div class="column-content"><img src="preview-bohr.jpg" class="preview-img"><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a></div>
-    </div>
-    <div class="split-column">
-      <div class="column-title">GB Bohr Atom</div>
-      <div class="column-content"><img src="preview-bohr-EN.jpg" class="preview-img"><a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="course-section">
-  <div class="course-header">4º ESO <span class="tag">Secundaria</span></div>
-  <div class="split-container">
-    <div class="split-column">
-      <div class="column-title">ES Plano Inclinado</div>
-      <div class="column-content"><img src="Preview_Plano_Inclinado.jpg" class="preview-img"><a href="https://EAG1964.github.io/Plano_Inclinado/" target="_blank" class="btn btn-es">ES Abrir</a></div>
-    </div>
-    <div class="split-column">
-      <div class="column-title">GB Inclined Plane</div>
-      <div class="column-content"><img src="Preview_Inclined_Plane.jpg" class="preview-img"><a href="https://EAG1964.github.io/Inclined_Plane/" target="_blank" class="btn btn-en">GB Open</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="course-section">
-  <div class="course-header" style="background: #2980b9;">1º BACHILLERATO <span class="tag">FyQ</span></div>
-  <div class="split-container">
-    <div class="split-column">
-      <div class="column-title">ES Doble Plano Inclinado</div>
-      <div class="column-content"><img src="Preview_DPI.jpg" class="preview-img"><a href="https://EAG1964.github.io/Doble_Plano_Inclinado/" target="_blank" class="btn btn-es">ES Abrir</a></div>
-    </div>
-    <div class="split-column">
-      <div class="column-title">GB Double Inclined Plane</div>
-      <div class="column-content"><img src="Preview_DIP.jpg" class="preview-img"><a href="https://EAG1964.github.io/Double_Incline_Plane/" target="_blank" class="btn btn-en">GB Open</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="course-section">
-  <div class="course-header" style="background: #1a5276;">2º BACHILLERATO <span class="tag">Física / Química</span></div>
-  <div class="split-container">
-    <div class="split-column">
-      <div class="column-title">ES Física Cuántica (Bohr)</div>
-      <div class="column-content"><img src="preview-bohr.jpg" class="preview-img"><a href="https://EAG1964.github.io/simulador-atomo-bohr/" target="_blank" class="btn btn-es">ES Abrir</a></div>
-    </div>
-    <div class="split-column">
-      <div class="column-title">GB Quantum Physics</div>
-      <div class="column-content"><img src="preview-bohr-EN.jpg" class="preview-img"><a href="https://EAG1964.github.io/bohr-atom-simulator-en/" target="_blank" class="btn btn-en">GB Open</a></div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=EAG1964.phychem.lab&right_color=blue" alt="Visitas">
-  <p>&copy; 2026 <strong>PhyChem Virtual Lab</strong> - EAG1964</p>
-</footer>
-
 </body>
 </html>
