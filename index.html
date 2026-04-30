@@ -10,10 +10,23 @@
   <style>
     :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f8f9fa; --accent-blue: #007bff; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; max-width: 1000px; margin: 40px auto; padding: 20px; background-color: var(--bg); color: #333; }
-    header { text-align: center; margin-bottom: 40px; border-bottom: 4px solid var(--secondary); padding-bottom: 20px; }
+    header { text-align: center; margin-bottom: 20px; border-bottom: 4px solid var(--secondary); padding-bottom: 20px; }
     header h1 { color: var(--accent-blue); margin: 0; font-size: 3rem; font-weight: bold; }
     header p { color: #000; font-weight: bold; margin: 5px 0; font-size: 1.1rem; }
-    .course-section { margin-top: 30px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; margin-bottom: 35px; }
+    
+    /* Estilos para la sección About y el Índice */
+    .about-box { background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 30px; line-height: 1.6; }
+    .index-box { background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 35px; border-left: 5px solid var(--secondary); }
+    .index-box h2 { margin-top: 0; color: var(--primary); font-size: 1.4rem; }
+    .index-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .index-level { font-weight: bold; color: var(--accent-blue); margin-bottom: 8px; display: block; text-decoration: none; }
+    .index-level:hover { text-decoration: underline; }
+    .index-list { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+    .index-list li { margin-bottom: 4px; }
+    .index-list a { text-decoration: none; color: #555; }
+    .index-list a:hover { color: var(--secondary); }
+
+    .course-section { margin-top: 30px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; margin-bottom: 35px; scroll-margin-top: 20px; }
     .course-header { background: var(--primary); color: white; padding: 12px 20px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
     .tag { font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; text-transform: uppercase; }
     .split-container { display: flex; border-bottom: 1px solid #eee; background: #fff; }
@@ -34,6 +47,7 @@
       .split-column { width: 100%; border-right: none; border-bottom: 1px solid #eee; }
       .column-content { flex-direction: column; align-items: center; text-align: center; }
       .preview-img { width: 100%; max-width: 220px; margin-bottom: 10px; }
+      .index-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -41,11 +55,69 @@
 
   <header>
     <h1>PhyChem Virtual Lab</h1>
-    <p><b>Simulaciones Interactivas de Física y Química | EAG1964</b></p>
-    <p><b>Interactive Physics and Chemistry Simulations | EAG1964</b></p>
+    <p>Simulaciones Interactivas de Física y Química | EAG1964</p>
+    <p>Interactive Physics and Chemistry Simulations | EAG1964</p>
   </header>
 
-  <section class="course-section">
+  <section class="about-box">
+    <h2>Sobre PhyChem Virtual Lab / About</h2>
+    <div style="margin-bottom: 15px;">
+        <p><strong>Español:</strong> Bienvenido a mi laboratorio virtual de Física y Química. Aquí puedes encontrar herramientas interactivas como el <strong>Simulador del Átomo de Bohr</strong>, el estudio dinámico del <strong>Plano Inclinado</strong>, simulaciones sobre la formación de <strong>rayos</strong> y calculadoras de <strong>cambio de unidades</strong>. Estos recursos están diseñados para ayudar a estudiantes y profesores a visualizar conceptos científicos complejos de forma sencilla.</p>
+    </div>
+    <div>
+        <p><strong>English:</strong> Welcome to PhyChem Virtual Lab. Explore interactive science tools including the <strong>Bohr Atom Model Simulator</strong>, <strong>Inclined Plane</strong> dynamics, <strong>lightning</strong> formation physics, and <strong>unit conversion</strong> calculators. These resources are designed to help students and educators visualize complex physics and chemistry concepts through interactive simulation.</p>
+    </div>
+  </section>
+
+  <nav class="index-box">
+    <h2>Índice de Simulaciones / Simulation Index</h2>
+    <div class="index-grid">
+      <div>
+        <a href="#eso2" class="index-level">2º ESO</a>
+        <ul class="index-list">
+          <li><a href="#eso2">Cambio Unidades 1 y 2</a></li>
+          <li><a href="#eso2">El Rayo</a></li>
+          <li><a href="#eso2">Átomo de Bohr</a></li>
+        </ul>
+      </div>
+      <div>
+        <a href="#eso3" class="index-level">3º ESO</a>
+        <ul class="index-list">
+          <li><a href="#eso3">Cambio Unidades 1 y 2</a></li>
+          <li><a href="#eso3">Átomo de Bohr</a></li>
+        </ul>
+      </div>
+      <div>
+        <a href="#eso4" class="index-level">4º ESO</a>
+        <ul class="index-list">
+          <li><a href="#eso4">Dinámica Superficie/Plano</a></li>
+          <li><a href="#eso4">Átomo de Bohr</a></li>
+        </ul>
+      </div>
+      <div>
+        <a href="#bto1" class="index-level">1º BACHILLERATO</a>
+        <ul class="index-list">
+          <li><a href="#bto1">Dinámica (Rampas, Atwood)</a></li>
+          <li><a href="#bto1">Momento Lineal y Torque</a></li>
+          <li><a href="#bto1">Equilibrio y Bohr</a></li>
+        </ul>
+      </div>
+      <div>
+        <a href="#bto2q" class="index-level">2º BTO Química</a>
+        <ul class="index-list">
+          <li><a href="#bto2q">Estructura Atómica</a></li>
+        </ul>
+      </div>
+      <div>
+        <a href="#bto2f" class="index-level">2º BTO Física</a>
+        <ul class="index-list">
+          <li><a href="#bto2f">Física Cuántica</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="course-section" id="eso2">
     <div class="course-header">2º ESO <span class="tag">Secundaria / Secondary</span></div>
     <div class="split-container">
       <div class="split-column">
@@ -89,7 +161,7 @@
     </div>
   </section>
 
-  <section class="course-section">
+  <section class="course-section" id="eso3">
     <div class="course-header">3º ESO <span class="tag">Secundaria / Secondary</span></div>
     <div class="split-container">
       <div class="split-column">
@@ -123,7 +195,7 @@
     </div>
   </section>
 
-  <section class="course-section">
+  <section class="course-section" id="eso4">
     <div class="course-header">4º ESO <span class="tag">Secundaria / Secondary</span></div>
     <div class="split-container">
       <div class="split-column">
@@ -167,7 +239,7 @@
     </div>
   </section>
 
-  <section class="course-section">
+  <section class="course-section" id="bto1">
     <div class="course-header" style="background: #2980b9;">1º BACHILLERATO <span class="tag">Física y Química</span></div>
     <div class="split-container">
       <div class="split-column">
@@ -310,7 +382,7 @@
     </div>
   </section>
 
-  <section class="course-section">
+  <section class="course-section" id="bto2q">
     <div class="course-header" style="background: #8e44ad;">2º BACHILLERATO <span class="tag">Química / Chemistry</span></div>
     <div class="split-container">
       <div class="split-column">
@@ -324,7 +396,7 @@
     </div>
   </section>
 
-  <section class="course-section">
+  <section class="course-section" id="bto2f">
     <div class="course-header" style="background: #1a5276;">2º BACHILLERATO <span class="tag">Física / Physics</span></div>
     <div class="split-container">
       <div class="split-column">
@@ -345,16 +417,5 @@
     &copy; 2026 <strong>PhyChem Virtual Lab</strong> - EAG1964
   </footer>
 
-  <hr>
-
-  <section style="padding: 20px; font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto;">
-    <h2>Sobre PhyChem Virtual Lab / About</h2>
-    <div style="margin-bottom: 20px;">
-        <p><strong>Español:</strong> Bienvenido a mi laboratorio virtual de Física y Química. Aquí puedes encontrar herramientas interactivas como el <strong>Simulador del Átomo de Bohr</strong>, el estudio dinámico del <strong>Plano Inclinado</strong>, simulaciones sobre la formación de <strong>rayos</strong> y calculadoras de <strong>cambio de unidades</strong>. Estos recursos están diseñados para ayudar a estudiantes y profesores a visualizar conceptos científicos complejos de forma sencilla.</p>
-    </div>
-    <div>
-        <p><strong>English:</strong> Welcome to PhyChem Virtual Lab. Explore interactive science tools including the <strong>Bohr Atom Model Simulator</strong>, <strong>Inclined Plane</strong> dynamics, <strong>lightning</strong> formation physics, and <strong>unit conversion</strong> calculators. These resources are designed to help students and educators visualize complex physics and chemistry concepts through interactive simulation.</p>
-    </div>
-  </section>
 </body>
 </html>
