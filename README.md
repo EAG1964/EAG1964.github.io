@@ -8,8 +8,7 @@ El objetivo es facilitar la comprensión de conceptos abstractos (como el átomo
 
 ## 🌐 Acceso al Laboratorio en Vivo
 Puedes explorar todas las simulaciones interactivas aquí:
-👉 **[Visitar PhyChem Virtual Lab](https://EAG1964.github.io/web-simulaciones/)** *(Nota: Asegúrate de que el nombre del repositorio en el enlace coincide con el tuyo)*.
-
+👉 **[Visitar PhyChem Virtual Lab](https://EAG1964.github.io/)** *(Nota: Asegúrate de que el nombre del repositorio en el enlace coincide con el tuyo)*.
 ---
 
 ## 📚 Organización Curricular
