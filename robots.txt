@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://eag1964.github.io/sitemap.xml
+Sitemap: https://eag1964.github.io/sitemap-full.xml
